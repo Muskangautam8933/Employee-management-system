@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
+import Header from "../others/Header";
+import CreateTask from "../others/CreateTask";
+import AllTask from "../others/AllTask";
 
 const AdminDashboard = () => {
   return (
-    <div>
-      <h1>Admin</h1>
+    <div className="h-screen w-full p-7">
+      <Header />
+      <CreateTask />
+      <AllTask />
     </div>
   );
-}
+};
 
 export default AdminDashboard;
