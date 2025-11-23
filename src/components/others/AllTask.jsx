@@ -1,48 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 const AllTask = () => {
+    const [userData , setUserData] = useContext(AuthContext)
+    
+    
+
   return (
-    <div className='bg-[#1C1C1C] p-5 mt-5 overflow-auto h-48 rounded '>
-        <div className='bg-red-400 mb-2 py-2 px-4 flex justify-between '>
-            <h2>Sarthak</h2>
-            <h3>Make UI Design</h3>
-            <h5>Status</h5>
+    <div className='bg-[#1C1C1C] p-5 mt-5  rounded '>
+        <div className='bg-emerald-600 mb-2 py-2 px-4 flex justify-between '>
+            <h2 className='text-lg font-medium w-1/5 '>Employee Name</h2>
+            <h3 className='text-lg font-medium w-1/5 '>New Task</h3>
+            <h5 className='text-lg font-medium w-1/5'>Active Task</h5>
+            <h5 className='text-lg font-medium w-1/5 '>Completed</h5>
+            <h5 className='text-lg font-medium w-1/5 '>Failed</h5>
         </div>
-
-        <div className='bg-green-400 mb-2 py-2 px-4 flex justify-between '>
-            <h2>Sarthak</h2>
-            <h3>Make UI Design</h3>
-            <h5>Status</h5>
+        
+        <div className=' '>
+            {userData.map(function(elem , idx){
+            return <div key={idx} className='border-2 border-red-300 mb-2 py-2 px-4 flex justify-between '>
+            <h2 key={idx} className='text-lg font-medium w-1/5 '>{elem.firstName}</h2>
+            <h3 key={idx} className='text-lg font-medium w-1/5'>{elem.taskCounts.newTask}</h3>
+            <h5 key={idx} className='text-lg font-medium w-1/5 '>{elem.taskCounts.active}</h5>
+            <h5 key={idx} className='text-lg font-medium w-1/5'>{elem.taskCounts.completed}</h5>
+            <h5 key={idx} className='text-lg font-medium w-1/5 '>{elem.taskCounts.failed}</h5>
         </div>
-
-        <div className='bg-blue-400 mb-2 py-2 px-4 flex justify-between '>
-            <h2>Sarthak</h2>
-            <h3>Make UI Design</h3>
-            <h5>Status</h5>
+           })}
         </div>
-
-        <div className='bg-yellow-400 mb-2 py-2 px-4 flex justify-between '>
-            <h2>Sarthak</h2>
-            <h3>Make UI Design</h3>
-            <h5>Status</h5>
-        </div>
-
-        <div className='bg-purple-400 mb-2 py-2 px-4 flex justify-between '>
-            <h2>Sarthak</h2>
-            <h3>Make UI Design</h3>
-            <h5>Status</h5>
-        </div>
-      
-
-        <div className='bg-orange-400 py-2 px-4 flex justify-between '>
-            <h2>Sarthak</h2>
-            <h3>Make UI Design</h3>
-            <h5>Status</h5>
-        </div>
-      
-      
-      
-      
       
     </div>
   );
